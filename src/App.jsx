@@ -21,6 +21,7 @@ import fbsocial from './assets/fbsocial.png'
 import tiktoksocial from './assets/tiktoksocial.png'
 import igsocial from './assets/igsocial.png'
 import shopeesocial from './assets/shopeesocial.png'
+import whitelogo from './assets/whitelogo.png'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -61,7 +62,7 @@ function App() {
 
 
         
-        <img style={{width: 523, height: 523, left: 1038, top: 1029, position: 'absolute'}} src="https://placehold.co/523x523" />
+        <img style={{width: 523, height: 523, left: 1038, top: 1029, position: 'absolute', zIndex:99999}} src={whitelogo} />
         <div style={{width: 1760, height: 2107, left: -24, top: 799, position: 'absolute', background: '#82001A'}} />
         <div style={{left: 780, top: 1028, position: 'absolute', color: 'white', fontSize: 50, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>ABOUT</div>
         <img style={{width: 1373, height: 579, left: 177, top: 5331, position: 'absolute'}} src="https://placehold.co/1373x579" />
@@ -141,7 +142,7 @@ function App() {
         <div style={{left: 653, top: 5220, position: 'absolute', color: '#82001A', fontSize: 50, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>STORE LOCATION</div>
         
 
-        <footer style={{top: '6070px', width:'100%',background:'#82001A',color:'white',padding:'2rem 5%',display:'flex',flexWrap:'wrap',justifyContent:'space-between',alignItems:'flex-start',position:'relative',boxSizing:'border-box',minHeight:'10rem'}}>
+        <footer style={{top: '5170px', width:'100%',background:'#82001A',color:'white',padding:'2rem 5%',display:'flex',flexWrap:'wrap',justifyContent:'space-between',alignItems:'flex-start',position:'relative',boxSizing:'border-box',minHeight:'10rem'}}>
           <img style={{ width: '16%', height: 'auto', right: '2%', top: 18.58, position: 'absolute', transform: 'rotate(-20deg)', transformOrigin: 'top left', borderRadius: 50 }} src={ribbon}/>
           <div style={{ width: '25%', left: '-1%', top: 81, position: 'absolute', textAlign: 'center', color: 'white', fontSize: 15, fontFamily: 'Inter', fontWeight: '400' }}>COPYRIGHT © 2025 STITCHIES CO.</div>
           <div style={{ left: '61%', top: 41, position: 'absolute', color: 'white', fontSize: 25, fontFamily: 'Roboto', fontWeight: '700' }}>Follow Us</div>
