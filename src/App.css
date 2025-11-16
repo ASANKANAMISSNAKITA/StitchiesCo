@@ -92,3 +92,5 @@
     font-size: 26px;
   }
 }
+
+.hide-scrollbar::-webkit-scrollbar { display: none; }
