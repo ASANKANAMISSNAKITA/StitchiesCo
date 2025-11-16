@@ -28,7 +28,7 @@ import stitchbuds from './assets/stitchbuds.png'
 import pouchies from './assets/pouchies.png'
 import lapstitchie from './assets/lapstitchies.png'
 import totiebag from './assets/totiebag.png'
-
+import map from './assets/map.png'
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -37,6 +37,36 @@ function App() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+
+  const socialsRef = useRef(null);
+  const aboutRef = useRef(null);
+  const productsRef = useRef(null);
+  const teamRef = useRef(null);
+  const storeRef = useRef(null);
+
+  const sections = {
+    SOCIALS: socialsRef,
+    ABOUT: aboutRef,
+    PRODUCTS: productsRef,
+    TEAM: teamRef,
+    STORE: storeRef,
+  };
+
+  const sectionOffsets = {
+    SOCIALS: -100,  // moves up 50px
+    ABOUT: -310,   // moves up 100px
+    PRODUCTS: -150,
+    TEAM: -150,
+    STORE: -120
+  };
+
+  const scrollToSection = (ref, offset = 0) => {
+    if (ref.current) {
+      const top = ref.current.getBoundingClientRect().top + window.scrollY + offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
+
 
   const onMouseDown = (e) => {
     setIsDragging(true);
@@ -69,8 +99,17 @@ function App() {
             <div style={{width:'100%',height:'auto',background:'#82001A',boxShadow:'0px 4px 15px rgba(0,0,0,0.25)',display:'flex',alignItems:'center',justifyContent:'space-between',padding:'1rem 5%',boxSizing:'border-box'}}>
               <img src={logo} alt="Logo" style={{width:'auto',maxHeight:'4rem',objectFit:'contain'}}/>
               <div className="desktop-menu" style={{display:'flex',gap:'3.5rem',alignItems:'center'}}>
-                {menuItems.map(item => <div key={item} style={{color:'#FAF8F8',fontSize:'1rem',fontFamily:'Halant',fontWeight:'700',cursor:'pointer'}}>{item}</div>)}
+                {menuItems.map(item => (
+                  <div 
+                    key={item} 
+                    style={{color:'#FAF8F8',fontSize:'1rem',fontFamily:'Halant',fontWeight:'700',cursor:'pointer'}}
+                    onClick={() => scrollToSection(sections[item], sectionOffsets[item])}
+                  >
+                    {item}
+                  </div>
+                ))}
               </div>
+
               <button className="mobile-menu-button" onClick={()=>setMenuOpen(!menuOpen)} style={{display:'none',background:'none',border:'none',color:'#FAF8F8',fontSize:'1.5rem',cursor:'pointer'}}>☰</button>
             </div>
             {menuOpen && (
@@ -80,7 +119,7 @@ function App() {
             )}
           </div>
 
-          <div className="social-section">
+          <div ref={socialsRef} className="social-section">
             {[
               { title: "FACEBOOK", link: "https://www.facebook.com/people/Stitchies-Co/61582689445991/", img: fbsocial},
               { title: "TIKTOK", link: "https://www.tiktok.com/@stichiesco", img: tiktoksocial },
@@ -99,7 +138,7 @@ function App() {
         
         <img style={{width: 423, height: 423, left: 1038, top: 1059, position: 'absolute', zIndex:999}} src={whitelogo} />
         <div style={{width: 1760, height: 2107, left: -24, top: 799, position: 'absolute', background: '#82001A'}} />
-        <div style={{left: 780, top: 1028, position: 'absolute', color: 'white', fontSize: 50, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>ABOUT</div>
+        <div ref={aboutRef} style={{left: 780, top: 1028, position: 'absolute', color: 'white', fontSize: 50, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>ABOUT</div>
         <img style={{width: 257, height: 257, left: 119.11, top: 659, position: 'absolute', transform: 'rotate(45deg)', transformOrigin: 'top left'}} src={ribbon}/>
             <img style={{width: 257, height: 257, left: 781.47, top: 710, position: 'absolute', transform: 'rotate(3deg)', transformOrigin: 'top left'}} src={ribbon}/>
             <img style={{width: 257, height: 257, left: 1527.91, top: 898.88, position: 'absolute', transform: 'rotate(157deg)', transformOrigin: 'top left'}} src={ribbon}/>
@@ -120,7 +159,7 @@ function App() {
         
         
         
-        <div style={{left: 673, top: 3027, position: 'absolute', color: '#82001A', fontSize: 50, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>OUR PRODUCTS</div>
+        <div ref={productsRef} style={{left: 673, top: 3027, position: 'absolute', color: '#82001A', fontSize: 50, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>OUR PRODUCTS</div>
         <div style={{left: 285, top: 3586, position: 'absolute', color: '#82001A', fontSize: 30, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>TOTIE BAG </div>
             <div style={{width: 429, height: 429, left: 145, top: 3145, position: 'absolute', background: '#FAF8F8', boxShadow: '0px 6px 8px 2px rgba(0, 0, 0, 0.25)'}} />
             <img style={{width: 429, height: 429, left: 145, top: 3145, position: 'absolute'}} src={totiebag} />
@@ -140,7 +179,7 @@ function App() {
             <div style={{width: 429, height: 429, left: 649, top: 3709, position: 'absolute', background: '#FAF8F8', boxShadow: '0px 6px 8px 2px rgba(0, 0, 0, 0.25)'}} />
             <img style={{width: 429, height: 429, left: 649, top: 3709, position: 'absolute'}} src={stitchbuds}/>
 
-        <div style={{left: 665, top: 4391, position: 'absolute', color: '#82001A', fontSize: 50, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>MEET THE TEAM</div>
+        <div ref={teamRef} style={{left: 665, top: 4391, position: 'absolute', color: '#82001A', fontSize: 50, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>MEET THE TEAM</div>
         <div className="hide-scrollbar" style={{top: 3750, position: 'relative', width: '100%', overflowX: 'auto', padding: '1rem 0', cursor: 'grab'}} ref={scrollRef} onMouseDown={onMouseDown} onMouseUp={onMouseUp} onMouseLeave={onMouseLeave} onMouseMove={onMouseMove}>
           <div style={{minWidth: 3320, position: 'relative', height: 484}}>
             <div style={{width: 1460, height: 484, left: 122, position: 'absolute'}}>
@@ -179,8 +218,8 @@ function App() {
         
           
         
-        <img style={{width: 1483, height: 625, left: 122, top: 5322, position: 'absolute'}} src="https://placehold.co/1483x625" />
-        <div style={{left: 653, top: 5220, position: 'absolute', color: '#82001A', fontSize: 50, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>STORE LOCATION</div>
+        <img style={{width: 1483, height: 625, left: 122, top: 5322, position: 'absolute'}} src={map} />
+        <div ref={storeRef} style={{left: 653, top: 5220, position: 'absolute', color: '#82001A', fontSize: 50, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>STORE LOCATION</div>
         
 
         <footer style={{top: '4770px', width:'100%',background:'#82001A',color:'white',padding:'2rem 5%',display:'flex',flexWrap:'wrap',justifyContent:'space-between',alignItems:'flex-start',position:'relative',boxSizing:'border-box',minHeight:'10rem'}}>
