@@ -22,6 +22,13 @@ import tiktoksocial from './assets/tiktoksocial.png'
 import igsocial from './assets/igsocial.png'
 import shopeesocial from './assets/shopeesocial.png'
 import whitelogo from './assets/whitelogo.png'
+import sleeves from './assets/stitchiessleeves.png'
+import silkanik from './assets/silkanik.png'
+import stitchbuds from './assets/stitchbuds.png'
+import pouchies from './assets/pouchies.png'
+import lapstitchie from './assets/lapstitchies.png'
+import totiebag from './assets/totiebag.png'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -89,52 +96,48 @@ function App() {
         <div style={{left: 673, top: 3027, position: 'absolute', color: '#82001A', fontSize: 50, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>OUR PRODUCTS</div>
         <div style={{left: 285, top: 3586, position: 'absolute', color: '#82001A', fontSize: 30, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>TOTIE BAG </div>
             <div style={{width: 429, height: 429, left: 145, top: 3145, position: 'absolute', background: '#FAF8F8', boxShadow: '0px 6px 8px 2px rgba(0, 0, 0, 0.25)'}} />
-            <img style={{width: 429, height: 429, left: 145, top: 3145, position: 'absolute'}} src="https://placehold.co/429x429" />
+            <img style={{width: 429, height: 429, left: 145, top: 3145, position: 'absolute'}} src={totiebag} />
             <div style={{left: 1293, top: 3586, position: 'absolute', color: '#82001A', fontSize: 30, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>POUCHIES</div>
             <div style={{width: 429, height: 429, left: 1153, top: 3145, position: 'absolute', background: '#FAF8F8', boxShadow: '0px 6px 8px 2px rgba(0, 0, 0, 0.25)'}} />
-            <img style={{width: 429, height: 429, left: 1153, top: 3145, position: 'absolute'}} src="https://placehold.co/429x429" />
+            <img style={{width: 429, height: 429, left: 1153, top: 3145, position: 'absolute'}} src={pouchies} />
             <div style={{left: 769, top: 3586, position: 'absolute', color: '#82001A', fontSize: 30, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>LAPSTITCHIE</div>
             <div style={{width: 429, height: 429, left: 649, top: 3145, position: 'absolute', background: '#FAF8F8', boxShadow: '0px 6px 8px 2px rgba(0, 0, 0, 0.25)'}} />
-            <img style={{width: 429, height: 429, left: 649, top: 3145, position: 'absolute'}} src="https://placehold.co/429x429" />
+            <img style={{width: 429, height: 429, left: 649, top: 3145, position: 'absolute'}} src={lapstitchie} />
             <div style={{left: 226, top: 4150, position: 'absolute', color: '#82001A', fontSize: 30, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>STITCHIE SLEEVES</div>
             <div style={{width: 429, height: 429, left: 145, top: 3709, position: 'absolute', background: '#FAF8F8', boxShadow: '0px 6px 8px 2px rgba(0, 0, 0, 0.25)'}} />
-            <img style={{width: 429, height: 429, left: 145, top: 3709, position: 'absolute'}} src="https://placehold.co/429x429" />
+            <img style={{width: 429, height: 429, left: 145, top: 3709, position: 'absolute'}} src={sleeves} />
             <div style={{left: 1293, top: 4150, position: 'absolute', color: '#82001A', fontSize: 30, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>SILKANIK</div>
             <div style={{width: 429, height: 429, left: 1153, top: 3709, position: 'absolute', background: '#FAF8F8', boxShadow: '0px 6px 8px 2px rgba(0, 0, 0, 0.25)'}} />
-            <img style={{width: 429, height: 429, left: 1153, top: 3709, position: 'absolute'}} src="https://placehold.co/429x429" />
+            <img style={{width: 429, height: 429, left: 1153, top: 3709, position: 'absolute'}} src={silkanik}/>
             <div style={{left: 771, top: 4150, position: 'absolute', color: '#82001A', fontSize: 30, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>STITCHBUDS</div>
             <div style={{width: 429, height: 429, left: 649, top: 3709, position: 'absolute', background: '#FAF8F8', boxShadow: '0px 6px 8px 2px rgba(0, 0, 0, 0.25)'}} />
-            <img style={{width: 429, height: 429, left: 649, top: 3709, position: 'absolute'}} src="https://placehold.co/429x429" />
+            <img style={{width: 429, height: 429, left: 649, top: 3709, position: 'absolute'}} src={stitchbuds}/>
 
         <div style={{left: 665, top: 4391, position: 'absolute', color: '#82001A', fontSize: 50, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>MEET THE TEAM</div>
         <div style={{width: 1460, height: 484, left: 122, top: 4512, position: 'absolute'}}>
-              <div style={{width: 397, height: 477, left: 894, top: 0, position: 'absolute', background: 'white', boxShadow: '0px 5px 13px rgba(0, 0, 0, 0.25)', borderRadius: 24}} />
-              <div style={{width: 334, height: 31, left: 923, top: 390, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>MARKETING STAFF</div>
-              <div style={{width: 334, height: 31, left: 923, top: 421, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Shemaiah Vidal</div>
-              <div style={{width: 397, height: 477, left: 447, top: 0, position: 'absolute', background: 'white', boxShadow: '0px 5px 13px rgba(0, 0, 0, 0.25)', borderRadius: 24}} />
-              <div style={{width: 334, height: 31, left: 476, top: 390, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>FINANCE MANAGER</div>
-              <div style={{width: 334, height: 31, left: 476, top: 421, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Izah Timkang</div>
-              <img style={{width: 350, height: 350, left: 470, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0, 0, 0, 0.25)'}} src="https://placehold.co/350x350" />
-              <div style={{width: 397, height: 477, left: 2235, top: 0, position: 'absolute', background: 'white', boxShadow: '0px 5px 13px rgba(0, 0, 0, 0.25)', borderRadius: 24}} />
-              <div style={{width: 334, height: 28.71, left: 2264, top: 396.42, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>LOGISTICS COORDINATOR</div>
-              <div style={{width: 334, height: 28.71, left: 2264, top: 425.13, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Curlenne Carlos</div>                <img style={{width: 350, height: 350, left: 2259, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0, 0, 0, 0.25)'}} src="https://placehold.co/350x350" />
-              <div style={{width: 397, height: 477, left: 2682, top: 0, position: 'absolute', background: 'white', boxShadow: '0px 5px 13px rgba(0, 0, 0, 0.25)', borderRadius: 24}} />
-              <div style={{width: 334, height: 28.71, left: 2711, top: 396.42, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>CASHIER STAFF</div>
-              <div style={{width: 334, height: 28.71, left: 2711, top: 425.13, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Yesha Fausto</div>
-              <img style={{width: 350, height: 350, left: 2711, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0, 0, 0, 0.25)'}} src="https://placehold.co/350x350" />
-              <div style={{width: 397, height: 477, left: 1788, top: 0, position: 'absolute', background: 'white', boxShadow: '0px 5px 13px rgba(0, 0, 0, 0.25)', borderRadius: 24}} />
-              <div style={{width: 334, height: 28.71, left: 1817, top: 396.42, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>SALES CONSULTANT</div>
-              <div style={{width: 334, height: 28.71, left: 1817, top: 425.13, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Lester Arellano</div>
-              <img style={{width: 350, height: 350, left: 1812, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0, 0, 0, 0.25)'}} src="https://placehold.co/350x350" />
-              <div style={{width: 397, height: 477, left: 1341, top: 0, position: 'absolute', background: 'white', boxShadow: '0px 5px 13px rgba(0, 0, 0, 0.25)', borderRadius: 24}} />
-              <div style={{width: 334, height: 31, left: 1370, top: 390, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>OPERATIONS MANAGER</div>
-              <div style={{width: 334, height: 31, left: 1370, top: 421, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Crisha Cubos</div>
-              <img style={{width: 350, height: 350, left: 1365, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0, 0, 0, 0.25)'}} src="https://placehold.co/350x350" />
-              <div style={{width: 397, height: 484, left: 0, top: 0, position: 'absolute', background: 'white', boxShadow: '0px 5px 13px rgba(0, 0, 0, 0.25)', borderRadius: 24}} />
-              <div style={{width: 334, height: 31, left: 29, top: 390, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>GENERAL MANAGER</div>
-              <div style={{width: 334, height: 31, left: 29, top: 421, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Ashley Atencia</div>
-              <img style={{width: 350, height: 350, left: 24, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0, 0, 0, 0.25)'}} src="https://placehold.co/350x350" />
-              <img style={{width: 350, height: 350, left: 918, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0, 0, 0, 0.25)'}} src="https://placehold.co/350x350" />
+          <div style={{width: 397, height: 477, left: 894, top: 0, position: 'absolute', background: 'white', boxShadow: '0px 5px 13px rgba(0, 0, 0, 0.25)', borderRadius: 24}} />
+          <div style={{width: 334, height: 31, left: 923, top: 390, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>MARKETING STAFF</div>
+          <div style={{width: 334, height: 31, left: 923, top: 421, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Shemaiah Vidal</div>
+          <div style={{width: 397, height: 477, left: 447, top: 0, position: 'absolute', background: 'white', boxShadow: '0px 5px 13px rgba(0, 0, 0, 0.25)', borderRadius: 24}} />            <div style={{width: 334, height: 31, left: 476, top: 390, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>FINANCE MANAGER</div>
+          <div style={{width: 334, height: 31, left: 476, top: 421, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Izah Timkang</div>
+          <img style={{width: 350, height: 350, left: 470, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0, 0, 0, 0.25)'}} src={izah} />
+          <div style={{width: 397, height: 477, left: 2235, top: 0, position: 'absolute', background: 'white', boxShadow: '0px 5px 13px rgba(0, 0, 0, 0.25)', borderRadius: 24}} />
+          <div style={{width: 334, height: 28.71, left: 2264, top: 396.42, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>LOGISTICS COORDINATOR</div>
+          <div style={{width: 334, height: 28.71, left: 2264, top: 425.13, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Curlenne Carlos</div>                           <img style={{width: 350, height: 350, left: 2259, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0, 0, 0, 0.25)'}} src={curlene}/>
+          <div style={{width: 397, height: 477, left: 2682, top: 0, position: 'absolute', background: 'white', boxShadow: '0px 5px 13px rgba(0, 0, 0, 0.25)', borderRadius: 24}} />
+          <div style={{width: 334, height: 28.71, left: 2711, top: 396.42, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>CASHIER STAFF</div>
+          <div style={{width: 334, height: 28.71, left: 2711, top: 425.13, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Yesha Fausto</div>            <img style={{width: 350, height: 350, left: 2711, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0, 0, 0, 0.25)'}} src={yesha} />
+          <div style={{width: 397, height: 477, left: 1788, top: 0, position: 'absolute', background: 'white', boxShadow: '0px 5px 13px rgba(0, 0, 0, 0.25)', borderRadius: 24}} />
+          <div style={{width: 334, height: 28.71, left: 1817, top: 396.42, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>SALES CONSULTANT</div>
+          <div style={{width: 334, height: 28.71, left: 1817, top: 425.13, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Lester Arellano</div>
+          <img style={{width: 350, height: 350, left: 1812, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0, 0, 0, 0.25)'}} src={lester}/>
+          <div style={{width: 397, height: 477, left: 1341, top: 0, position: 'absolute', background: 'white', boxShadow: '0px 5px 13px rgba(0, 0, 0, 0.25)', borderRadius: 24}} />
+          <div style={{width: 334, height: 31, left: 1370, top: 390, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>OPERATIONS MANAGER</div>            <div style={{width: 334, height: 31, left: 1370, top: 421, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Crisha Cubos</div>
+          <img style={{width: 350, height: 350, left: 1365, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0, 0, 0, 0.25)'}} src={isha} />
+          <div style={{width: 397, height: 484, left: 0, top: 0, position: 'absolute', background: 'white', boxShadow: '0px 5px 13px rgba(0, 0, 0, 0.25)', borderRadius: 24}} />
+          <div style={{width: 334, height: 31, left: 29, top: 390, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>GENERAL MANAGER</div>            <div style={{width: 334, height: 31, left: 29, top: 421, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Ashley Atencia</div>
+          <img style={{width: 350, height: 350, left: 24, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0, 0, 0, 0.25)'}} src={ashley}/>
+          <img style={{width: 350, height: 350, left: 918, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0, 0, 0, 0.25)'}} src={shem}/>
         </div>
           
         
