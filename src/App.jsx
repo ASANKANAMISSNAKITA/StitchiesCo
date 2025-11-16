@@ -248,7 +248,31 @@ function App() {
                 <img style={{width: 350, height: 350, left: 24, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0, 0, 0, 0.25)'}} src="https://placehold.co/350x350" />
                 <img style={{width: 350, height: 350, left: 918, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0, 0, 0, 0.25)'}} src="https://placehold.co/350x350" />
             </div>
-            
+            <div style={{width: 1728, height: 667, left: 0, top: 132, position: 'absolute', background: 'white', overflow: 'hidden'}}>
+                <div style={{width: 5, height: 667, left: 1295, top: 0, position: 'absolute', background: 'rgba(128.91, 0, 25.78, 0.55)'}} />
+                <div style={{width: 5, height: 667, left: 428, top: 0, position: 'absolute', background: 'rgba(128.91, 0, 25.78, 0.55)'}} />
+                <div style={{width: 6, height: 667, left: 861, top: 0, position: 'absolute', background: 'rgba(128.91, 0, 25.78, 0.55)'}} />
+                <div style={{width: 428, height: 667, left: 0, top: 0, position: 'absolute', overflow: 'hidden'}}>
+                    <img style={{width: 479, height: 677, left: -24, top: 0, position: 'absolute'}} src="https://placehold.co/479x677" />
+                    <div style={{width: 428, height: 667, left: 0, top: 0, position: 'absolute', opacity: 0.15, background: '#82001A'}} />
+                    <div style={{left: 131, top: 308, position: 'absolute', color: 'white', fontSize: 35, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word', textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'}}>FACEBOOK</div>
+                </div>
+                <div style={{width: 428, height: 667, left: 433, top: 0, position: 'absolute', overflow: 'hidden'}}>
+                    <img style={{width: 450, height: 674, left: -13, top: 3, position: 'absolute'}} src="https://placehold.co/450x674" />
+                    <div style={{width: 428, height: 667, left: 0, top: 0, position: 'absolute', opacity: 0.15, background: '#82001A'}} />
+                    <div style={{left: 148, top: 306, position: 'absolute', color: 'white', fontSize: 35, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word', textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'}}>TIKTOK</div>
+                </div>
+                <div style={{width: 428, height: 667, left: 867, top: 0, position: 'absolute', overflow: 'hidden'}}>
+                    <img style={{width: 492, height: 696, left: -34, top: -23, position: 'absolute'}} src="https://placehold.co/492x696" />
+                    <div style={{width: 428, height: 667, left: 0, top: 0, position: 'absolute', opacity: 0.15, background: '#82001A'}} />
+                    <div style={{left: 148, top: 306, position: 'absolute', color: 'white', fontSize: 35, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word', textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'}}>SHOPEE</div>
+                </div>
+                <div style={{width: 428, height: 667, left: 1300, top: 0, position: 'absolute', overflow: 'hidden'}}>
+                    <img style={{width: 566, height: 849, left: -69, top: -57, position: 'absolute'}} src="https://placehold.co/566x849" />
+                    <div style={{width: 428, height: 667, left: 0, top: 0, position: 'absolute', opacity: 0.15, background: '#82001A'}} />
+                    <div style={{left: 110, top: 306, position: 'absolute', color: 'white', fontSize: 35, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word', textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'}}>INSTAGRAM</div>
+                </div>
+            </div>
             
           </div>
 
