@@ -1,14 +1,12 @@
 import { useState, useRef } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+
 import shopeeIcon from './assets/shoppee.png'
 import fbIcon from './assets/facebook.png'
 import instagramIcon from './assets/instagram.png'
 import tiktok from './assets/tiktok.png'
 import ribbon from './assets/ribbon.png'
 import logo from './assets/logo.png'
-import logo2 from './assets/logo2.png'
 import ashley from './assets/ashley.png'
 import curlene from './assets/curlene.png'
 import isha from './assets/isha.png'
@@ -28,21 +26,19 @@ import stitchbuds from './assets/stitchbuds.png'
 import pouchies from './assets/pouchies.png'
 import lapstitchie from './assets/lapstitchies.png'
 import totiebag from './assets/totiebag.png'
-import map from './assets/map.png'
+import mapImg from './assets/map.png'
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const menuItems = ['SOCIALS','ABOUT','PRODUCTS','TEAM','STORE'];
-  const scrollRef = useRef(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
 
   const socialsRef = useRef(null);
   const aboutRef = useRef(null);
   const productsRef = useRef(null);
   const teamRef = useRef(null);
   const storeRef = useRef(null);
+  const scrollRef = useRef(null); // still fine to keep, even if CSS handles movement
+
+  const menuItems = ['SOCIALS', 'ABOUT', 'PRODUCTS', 'TEAM', 'STORE'];
 
   const sections = {
     SOCIALS: socialsRef,
@@ -53,11 +49,11 @@ function App() {
   };
 
   const sectionOffsets = {
-    SOCIALS: -100,  // moves up 50px
-    ABOUT: -310,   // moves up 100px
-    PRODUCTS: -150,
-    TEAM: -150,
-    STORE: -120
+    SOCIALS: -80,
+    ABOUT: -80,
+    PRODUCTS: -80,
+    TEAM: -80,
+    STORE: -80,
   };
 
   const scrollToSection = (ref, offset = 0) => {
@@ -67,193 +63,262 @@ function App() {
     }
   };
 
-
-  const onMouseDown = (e) => {
-    setIsDragging(true);
-    setStartX(e.pageX - scrollRef.current.offsetLeft);
-    setScrollLeft(scrollRef.current.scrollLeft);
-  };
-
-  const onMouseLeave = () => setIsDragging(false);
-  const onMouseUp = () => setIsDragging(false);
-  const onMouseMove = (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX) * 1; // drag speed
-    scrollRef.current.scrollLeft = scrollLeft - walk;
-  };
-
   const products = [
-      { name: 'TOTIE BAG', link: '#', description: 'Stylish and functional tote bag.' },
-      { name: 'POUCHIES', link: '#', description: 'Versatile small pouches for essentials.' },
-      { name: 'LAPSTITCHIE', link: '#', description: 'Sleeve for laptops and tablets.' },
-      { name: 'STITCHIE SLEEVES', link: '#', description: 'Protective sleeves for various items.' },
-      { name: 'SILKANIK', link: '#', description: 'Eco-friendly silk organizer.' },
-      { name: 'STITCHBUDS', link: '#', description: 'Earbud/small cable organizer.' },
+    { name: 'TOTIE BAG', description: 'Stylish and functional tote bag.', image: totiebag },
+    { name: 'POUCHIES', description: 'Versatile small pouches for essentials.', image: pouchies },
+    { name: 'LAPSTITCHIE', description: 'Sleeve for laptops and tablets.', image: lapstitchie },
+    { name: 'STITCHIE SLEEVES', description: 'Protective sleeves for various items.', image: sleeves },
+    { name: 'SILKANIK', description: 'Eco-friendly silk organizer.', image: silkanik },
+    { name: 'STITCHBUDS', description: 'Earbud/small cable organizer.', image: stitchbuds },
   ];
-  
+
+  const teamMembers = [
+    { role: 'GENERAL MANAGER', name: 'Ashley Atencia', image: ashley },
+    { role: 'FINANCE MANAGER', name: 'Izah Timkang', image: izah },
+    { role: 'MARKETING STAFF', name: 'Shemaiah Vidal', image: shem },
+    { role: 'OPERATIONS MANAGER', name: 'Crisha Cubos', image: isha },
+    { role: 'SALES CONSULTANT', name: 'Lester Arellano', image: lester },
+    { role: 'LOGISTICS COORDINATOR', name: 'Curlenne Carlos', image: curlene },
+    { role: 'CASHIER STAFF', name: 'Yesha Fausto', image: yesha },
+  ];
+
+  // duplicate for smooth looping in CSS
+  const loopingTeamMembers = [...teamMembers, ...teamMembers];
+
+  const socialCards = [
+    { title: "FACEBOOK", link: "https://www.facebook.com/people/Stitchies-Co/61582689445991/", img: fbsocial },
+    { title: "TIKTOK", link: "https://www.tiktok.com/@stichiesco", img: tiktoksocial },
+    { title: "SHOPEE", link: "#", img: shopeesocial },
+    { title: "INSTAGRAM", link: "https://www.instagram.com/stitchies_co/#", img: igsocial },
+  ];
+
   return (
-    <div style={{width: '1728px', height: '6180px', background: '#FAF8F8'}}>
-         <div style={{position:'sticky',top:0,zIndex:1000,width:'100%'}}>
-            <div style={{width:'100%',height:'auto',background:'#82001A',boxShadow:'0px 4px 15px rgba(0,0,0,0.25)',display:'flex',alignItems:'center',justifyContent:'space-between',padding:'1rem 5%',boxSizing:'border-box'}}>
-              <img src={logo} alt="Logo" style={{width:'auto',maxHeight:'4rem',objectFit:'contain'}}/>
-              <div className="desktop-menu" style={{display:'flex',gap:'3.5rem',alignItems:'center'}}>
-                {menuItems.map(item => (
-                  <div 
-                    key={item} 
-                    style={{color:'#FAF8F8',fontSize:'1rem',fontFamily:'Halant',fontWeight:'700',cursor:'pointer'}}
-                    onClick={() => scrollToSection(sections[item], sectionOffsets[item])}
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
+    <div className="app">
+      {/* NAVBAR */}
+      <header className="navbar">
+        <div className="navbar-inner">
+          <img src={logo} alt="Logo" className="navbar-logo" />
 
-              <button className="mobile-menu-button" onClick={()=>setMenuOpen(!menuOpen)} style={{display:'none',background:'none',border:'none',color:'#FAF8F8',fontSize:'1.5rem',cursor:'pointer'}}>☰</button>
-            </div>
-            {menuOpen && (
-              <div className="mobile-menu" style={{display:'flex',flexDirection:'column',background:'#82001A',padding:'1rem 5%',gap:'1rem'}}>
-                {menuItems.map(item => <div key={item} style={{color:'#FAF8F8',fontSize:'1rem',fontFamily:'Halant',fontWeight:'700',cursor:'pointer'}}>{item}</div>)}
-              </div>
-            )}
-          </div>
+          <nav className="desktop-menu">
+            {menuItems.map((item) => (
+              <button
+                key={item}
+                className="nav-link"
+                onClick={() => scrollToSection(sections[item], sectionOffsets[item])}
+              >
+                {item}
+              </button>
+            ))}
+          </nav>
 
-          <div ref={socialsRef} className="social-section">
-            {[
-              { title: "FACEBOOK", link: "https://www.facebook.com/people/Stitchies-Co/61582689445991/", img: fbsocial},
-              { title: "TIKTOK", link: "https://www.tiktok.com/@stichiesco", img: tiktoksocial },
-              { title: "SHOPEE", link: " #", img: shopeesocial },
-              { title: "INSTAGRAM", link: "https://www.instagram.com/stitchies_co/#", img: igsocial }
-            ].map((item, index) => (
-              <a key={index} href={item.link} className="social-card">
+          <button
+            className="mobile-menu-button"
+            onClick={() => setMenuOpen(prev => !prev)}
+          >
+            ☰
+          </button>
+        </div>
+
+        {menuOpen && (
+          <nav className="mobile-menu">
+            {menuItems.map((item) => (
+              <button
+                key={item}
+                className="mobile-nav-link"
+                onClick={() => {
+                  scrollToSection(sections[item], sectionOffsets[item]);
+                  setMenuOpen(false);
+                }}
+              >
+                {item}
+              </button>
+            ))}
+          </nav>
+        )}
+      </header>
+
+      <main>
+        {/* SOCIALS */}
+        <section ref={socialsRef} className="section social-section">
+          <h2 className="section-title">SOCIALS</h2>
+          <div className="social-grid">
+            {socialCards.map((item) => (
+              <a
+                key={item.title}
+                href={item.link}
+                className="social-card"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <img src={item.img} alt={item.title} />
-                <div className="overlay"></div>
-                <h2>{item.title}</h2>
+                <div className="overlay" />
+                <h3>{item.title}</h3>
               </a>
             ))}
           </div>
+        </section>
+
+        {/* ABOUT */}
+        <section ref={aboutRef} className="section about-section">
+          {/* decorative ribbons */}
+          <img src={ribbon} alt="" className="about-ribbon about-ribbon-1" />
+          <img src={ribbon} alt="" className="about-ribbon about-ribbon-2" />
+          <img src={ribbon} alt="" className="about-ribbon about-ribbon-3" />
+
+          <div className="about-inner">
+            {/* top label */}
+            <p className="about-eyebrow">ABOUT</p>
+
+            {/* ABOUT + logo row */}
+            <div className="about-top">
+              <div className="about-text-block">
+                <h2 className="section-title light">STITCHIES CO.</h2>
+                <p className="about-text">
+                  Stitchies Co. was founded on the belief that great style and sustainable practices
+                  should go hand in hand. Our name embodies this dual philosophy: craftsmanship and
+                  captivation.
+                </p>
+              </div>
+
+              <div className="about-logo-wrapper">
+                <img src={whitelogo} alt="Stitchies Co." className="about-logo" />
+              </div>
+            </div>
+
+            {/* roadmap centered above Mission / Vision */}
+            <div className="about-roadmap-wrapper">
+              <img src={roadmap} alt="Roadmap" className="about-roadmap" />
+            </div>
+
+            {/* Mission bottom-left, Vision bottom-right */}
+            <div className="about-mv-grid">
+              <div className="about-card">
+                <h3>MISSION</h3>
+                <p>
+                  Our mission at Stitchies Co. is to achieve the creation of compact essentials
+                  that lessen everyday hassle, can be carried anywhere, and reflect both function
+                  and style. Through this, we aim to provide practical solutions that highlight
+                  our commitment to creativity and innovation in the present market.
+                </p>
+              </div>
+
+              <div className="about-card">
+                <h3>VISION</h3>
+                <p>
+                  Our vision is to make Stitchies Co. a recognized brand in sustainable and
+                  stylish compact products by turning fabric scraps into creative, fashionable,
+                  and functional essentials. We encourage people to embrace eco-friendly
+                  lifestyles and promote environmental stewardship that leads to lasting social
+                  change.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
 
-        
-        <img style={{width: 423, height: 423, left: 1038, top: 1059, position: 'absolute', zIndex:999}} src={whitelogo} />
-        <div style={{width: 1760, height: 2107, left: -24, top: 799, position: 'absolute', background: '#82001A'}} />
-        <div ref={aboutRef} style={{left: 780, top: 1028, position: 'absolute', color: 'white', fontSize: 50, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>ABOUT</div>
-        <img style={{width: 257, height: 257, left: 119.11, top: 659, position: 'absolute', transform: 'rotate(45deg)', transformOrigin: 'top left'}} src={ribbon}/>
-            <img style={{width: 257, height: 257, left: 781.47, top: 710, position: 'absolute', transform: 'rotate(3deg)', transformOrigin: 'top left'}} src={ribbon}/>
-            <img style={{width: 257, height: 257, left: 1527.91, top: 898.88, position: 'absolute', transform: 'rotate(157deg)', transformOrigin: 'top left'}} src={ribbon}/>
-            <img style={{width: 195.90, height: 195.90, left: 356, top: 790.17, position: 'absolute', transform: 'rotate(-31deg)', transformOrigin: 'top left'}} src={ribbon} />
-            <img style={{width: 195.90, height: 195.90, left: 1573, top: 763.16, position: 'absolute', transform: 'rotate(-6deg)', transformOrigin: 'top left'}} src={ribbon} />
-            <img style={{width: 257, height: 257, left: 1602.02, top: 3049.45, position: 'absolute', transform: 'rotate(-135deg)', transformOrigin: 'top left'}} src={ribbon}/>
-            <img style={{width: 257, height: 257, left: 949.65, top: 3002.45, position: 'absolute', transform: 'rotate(-177deg)', transformOrigin: 'top left'}} src={ribbon}/>
-            <img style={{width: 257, height: 257, left: 203.22, top: 2813.57, position: 'absolute', transform: 'rotate(-23deg)', transformOrigin: 'top left'}} src={ribbon}/>
-            <img style={{width: 195.90, height: 195.90, left: 1375.13, top: 2922.28, position: 'absolute', transform: 'rotate(149deg)', transformOrigin: 'top left'}} src={ribbon} />
-            <img style={{width: 195.90, height: 195.90, left: 158.13, top: 2949.29, position: 'absolute', transform: 'rotate(174deg)', transformOrigin: 'top left'}} src={ribbon}/>
-            <div style={{width: 319, height: 66, left: 192, top: 1162, position: 'absolute', color: '#FAF8F8', fontSize: 42, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>STITCHIES CO.</div>
-            <div style={{width: 319, height: 66, left: 264, top: 2278, position: 'absolute', textAlign: 'center', color: '#FAF8F8', fontSize: 42, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>MISSION</div>
-            <div style={{width: 319, height: 66, left: 1089, top: 2278, position: 'absolute', textAlign: 'center', color: '#FAF8F8', fontSize: 42, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>VISION</div>
-            <div style={{width: 690, height: 215, left: 192, top: 1228, position: 'absolute', color: '#FAF8F8', fontSize: 32, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Stitchies Co. was founded on the belief that great style and sustainable practices should go hand in hand. Our name embodies this dual philosophy: craftsmanship and captivation.</div>
-            <div style={{width: 650, height: 264, left: 115, top: 2352, position: 'absolute', textAlign: 'justify', color: '#FAF8F8', fontSize: 30, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Our mission at Stitchies Co. is to achieve the creation of compact essentials that lessen everyday hassle, can be carried anywhere, and reflect both function and style. Through this, we aim to provide practical solutions that highlight our commitment to creativity and innovation in the present market.</div>
-            <div style={{width: 696, height: 299, left: 901, top: 2352, position: 'absolute', textAlign: 'justify', color: '#FAF8F8', fontSize: 30, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Our vision is to make Stitchies Co. a recognized brand in sustainable and stylish compact products by turning fabric scraps into creative, fashionable, and functional essentials. We encourage people to embrace eco-friendly lifestyles and promote environmental stewardship that leads to lasting social change.</div>
-            <img style={{width: 1588, height: 590, left: 70, top: 1566, position: 'absolute'}} src={roadmap} />
-        
-        
-        
-        <div ref={productsRef} style={{left: 673, top: 3027, position: 'absolute', color: '#82001A', fontSize: 50, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>OUR PRODUCTS</div>
-        <div style={{left: 285, top: 3586, position: 'absolute', color: '#82001A', fontSize: 30, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>TOTIE BAG </div>
-            <div style={{width: 429, height: 429, left: 145, top: 3145, position: 'absolute', background: '#FAF8F8', boxShadow: '0px 6px 8px 2px rgba(0, 0, 0, 0.25)'}} />
-            <img style={{width: 429, height: 429, left: 145, top: 3145, position: 'absolute'}} src={totiebag} />
-            <div style={{left: 1293, top: 3586, position: 'absolute', color: '#82001A', fontSize: 30, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>POUCHIES</div>
-            <div style={{width: 429, height: 429, left: 1153, top: 3145, position: 'absolute', background: '#FAF8F8', boxShadow: '0px 6px 8px 2px rgba(0, 0, 0, 0.25)'}} />
-            <img style={{width: 429, height: 429, left: 1153, top: 3145, position: 'absolute'}} src={pouchies} />
-            <div style={{left: 769, top: 3586, position: 'absolute', color: '#82001A', fontSize: 30, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>LAPSTITCHIE</div>
-            <div style={{width: 429, height: 429, left: 649, top: 3145, position: 'absolute', background: '#FAF8F8', boxShadow: '0px 6px 8px 2px rgba(0, 0, 0, 0.25)'}} />
-            <img style={{width: 429, height: 429, left: 649, top: 3145, position: 'absolute'}} src={lapstitchie} />
-            <div style={{left: 226, top: 4150, position: 'absolute', color: '#82001A', fontSize: 30, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>STITCHIE SLEEVES</div>
-            <div style={{width: 429, height: 429, left: 145, top: 3709, position: 'absolute', background: '#FAF8F8', boxShadow: '0px 6px 8px 2px rgba(0, 0, 0, 0.25)'}} />
-            <img style={{width: 429, height: 429, left: 145, top: 3709, position: 'absolute'}} src={sleeves} />
-            <div style={{left: 1293, top: 4150, position: 'absolute', color: '#82001A', fontSize: 30, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>SILKANIK</div>
-            <div style={{width: 429, height: 429, left: 1153, top: 3709, position: 'absolute', background: '#FAF8F8', boxShadow: '0px 6px 8px 2px rgba(0, 0, 0, 0.25)'}} />
-            <img style={{width: 429, height: 429, left: 1153, top: 3709, position: 'absolute'}} src={silkanik}/>
-            <div style={{left: 771, top: 4150, position: 'absolute', color: '#82001A', fontSize: 30, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>STITCHBUDS</div>
-            <div style={{width: 429, height: 429, left: 649, top: 3709, position: 'absolute', background: '#FAF8F8', boxShadow: '0px 6px 8px 2px rgba(0, 0, 0, 0.25)'}} />
-            <img style={{width: 429, height: 429, left: 649, top: 3709, position: 'absolute'}} src={stitchbuds}/>
+        {/* PRODUCTS */}
+        <section ref={productsRef} className="section products-section">
+          <h2 className="section-title">OUR PRODUCTS</h2>
+          <div className="products-grid">
+            {products.map((p) => (
+              <div className="product-card" key={p.name}>
+                <div className="product-image-wrapper">
+                  <img src={p.image} alt={p.name} className="product-image" />
+                </div>
+                <h3 className="product-name">{p.name}</h3>
+                <p className="product-desc">{p.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
-        <div ref={teamRef} style={{left: 665, top: 4391, position: 'absolute', color: '#82001A', fontSize: 50, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>MEET THE TEAM</div>
-        <div className="hide-scrollbar" style={{top: 3750, position: 'relative', width: '100%', overflowX: 'auto', padding: '1rem 0', cursor: 'grab'}} ref={scrollRef} onMouseDown={onMouseDown} onMouseUp={onMouseUp} onMouseLeave={onMouseLeave} onMouseMove={onMouseMove}>
-          <div style={{minWidth: 3320, position: 'relative', height: 484}}>
-            <div style={{width: 1460, height: 484, left: 122, position: 'absolute'}}>
-              <div style={{width: 397, height: 477, left: 894, top: 0, position: 'absolute', background: 'white', boxShadow: '0px 5px 13px rgba(0,0,0,0.25)', borderRadius: 24}}/>
-              <div style={{width: 334, height: 31, left: 923, top: 390, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>MARKETING STAFF</div>
-              <div style={{width: 334, height: 31, left: 923, top: 421, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Shemaiah Vidal</div>
-              <div style={{width: 397, height: 477, left: 447, top: 0, position: 'absolute', background: 'white', boxShadow: '0px 5px 13px rgba(0,0,0,0.25)', borderRadius: 24}}/>
-              <div style={{width: 334, height: 31, left: 476, top: 390, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>FINANCE MANAGER</div>
-              <div style={{width: 334, height: 31, left: 476, top: 421, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Izah Timkang</div>
-              <img style={{width: 350, height: 350, left: 470, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0,0,0,0.25)'}} src={izah}/>
-              <div style={{width: 397, height: 477, left: 2235, top: 0, position: 'absolute', background: 'white', boxShadow: '0px 5px 13px rgba(0,0,0,0.25)', borderRadius: 24}}/>
-              <div style={{width: 334, height: 28.71, left: 2264, top: 396.42, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>LOGISTICS COORDINATOR</div>
-              <div style={{width: 334, height: 28.71, left: 2264, top: 425.13, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Curlenne Carlos</div>
-              <img style={{width: 350, height: 350, left: 2259, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0,0,0,0.25)'}} src={curlene}/>
-              <div style={{width: 397, height: 477, left: 2682, top: 0, position: 'absolute', background: 'white', boxShadow: '0px 5px 13px rgba(0,0,0,0.25)', borderRadius: 24}}/>
-              <div style={{width: 334, height: 28.71, left: 2711, top: 396.42, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>CASHIER STAFF</div>
-              <div style={{width: 334, height: 28.71, left: 2711, top: 425.13, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Yesha Fausto</div>
-              <img style={{width: 350, height: 350, left: 2711, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0,0,0,0.25)'}} src={yesha}/>
-              <div style={{width: 397, height: 477, left: 1788, top: 0, position: 'absolute', background: 'white', boxShadow: '0px 5px 13px rgba(0,0,0,0.25)', borderRadius: 24}}/>
-              <div style={{width: 334, height: 28.71, left: 1817, top: 396.42, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>SALES CONSULTANT</div>
-              <div style={{width: 334, height: 28.71, left: 1817, top: 425.13, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Lester Arellano</div>
-              <img style={{width: 350, height: 350, left: 1812, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0,0,0,0.25)'}} src={lester}/>
-              <div style={{width: 397, height: 477, left: 1341, top: 0, position: 'absolute', background: 'white', boxShadow: '0px 5px 13px rgba(0,0,0,0.25)', borderRadius: 24}}/>
-              <div style={{width: 334, height: 31, left: 1370, top: 390, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>OPERATIONS MANAGER</div>
-              <div style={{width: 334, height: 31, left: 1370, top: 421, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Crisha Cubos</div>
-              <img style={{width: 350, height: 350, left: 1365, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0,0,0,0.25)'}} src={isha}/>
-              <div style={{width: 397, height: 484, left: 0, top: 0, position: 'absolute', background: 'white', boxShadow: '0px 5px 13px rgba(0,0,0,0.25)', borderRadius: 24}}/>
-              <div style={{width: 334, height: 31, left: 29, top: 390, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>GENERAL MANAGER</div>
-              <div style={{width: 334, height: 31, left: 29, top: 421, position: 'absolute', color: 'black', fontSize: 20, fontFamily: 'Halant', fontWeight: '400', wordWrap: 'break-word'}}>Ashley Atencia</div>
-              <img style={{width: 350, height: 350, left: 24, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0,0,0,0.25)'}} src={ashley}/>
-              <img style={{width: 350, height: 350, left: 918, top: 23, position: 'absolute', boxShadow: '0px 6px 8px rgba(0,0,0,0.25)'}} src={shem}/>
+        {/* TEAM */}
+        <section ref={teamRef} className="section team-section">
+          <h2 className="section-title">MEET THE TEAM</h2>
+          <div
+            className="team-scroll hide-scrollbar"
+            ref={scrollRef}
+          >
+            <div className="team-track">
+              {loopingTeamMembers.map((m, idx) => (
+                <div className="team-card" key={`${m.name}-${idx}`}>
+                  <div className="team-image-wrapper">
+                    <img src={m.image} alt={m.name} className="team-image" />
+                  </div>
+                  <div className="team-info">
+                    <p className="team-role">{m.role}</p>
+                    <p className="team-name">{m.name}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* STORE */}
+        <section ref={storeRef} className="section store-section">
+          <h2 className="section-title">STORE LOCATION</h2>
+          <div className="store-map-wrapper">
+            <img src={mapImg} alt="Store location" className="store-map" />
+          </div>
+        </section>
+      </main>
+
+      {/* FOOTER */}
+      <footer className="footer">
+        <img src={ribbon} alt="" className="footer-ribbon" />
+
+        <div className="footer-columns">
+          <div className="footer-col">
+            <h3 className="footer-heading">Stitchies Co.</h3>
+            <button
+              className="footer-link"
+              onClick={() => scrollToSection(aboutRef, sectionOffsets.ABOUT)}
+            >
+              About Us
+            </button>
+            <button
+              className="footer-link"
+              onClick={() => scrollToSection(productsRef, sectionOffsets.PRODUCTS)}
+            >
+              Products
+            </button>
+            <button
+              className="footer-link"
+              onClick={() => scrollToSection(teamRef, sectionOffsets.TEAM)}
+            >
+              Team
+            </button>
+            <button
+              className="footer-link"
+              onClick={() => scrollToSection(storeRef, sectionOffsets.STORE)}
+            >
+              Store
+            </button>
+          </div>
+
+          <div className="footer-col">
+            <h3 className="footer-heading">Contact Us</h3>
+            <p className="footer-text">Email: stitchiescoquette@gmail.com</p>
+            <p className="footer-text">Phone: (+63) 995-464-6403</p>
+          </div>
+
+          <div className="footer-col">
+            <h3 className="footer-heading">Follow Us</h3>
+            <div className="footer-socials">
+              <img src={fbIcon} alt="Facebook" />
+              <img src={instagramIcon} alt="Instagram" />
+              <img src={tiktok} alt="TikTok" />
+              <img src={shopeeIcon} alt="Shopee" />
             </div>
           </div>
         </div>
 
-        
-          
-        
-        <img style={{width: 1483, height: 625, left: 122, top: 5322, position: 'absolute'}} src={map} />
-        <div ref={storeRef} style={{left: 653, top: 5220, position: 'absolute', color: '#82001A', fontSize: 50, fontFamily: 'Halant', fontWeight: '700', wordWrap: 'break-word'}}>STORE LOCATION</div>
-        
-
-        <footer style={{top: '4770px', width:'100%',background:'#82001A',color:'white',padding:'2rem 5%',display:'flex',flexWrap:'wrap',justifyContent:'space-between',alignItems:'flex-start',position:'relative',boxSizing:'border-box',minHeight:'10rem'}}>
-          <img style={{ width: '16%', height: 'auto', right: '2%', top: 18.58, position: 'absolute', transform: 'rotate(-20deg)', transformOrigin: 'top left', borderRadius: 50 }} src={ribbon}/>
-          <div style={{ width: '25%', left: '-1%', top: 81, position: 'absolute', textAlign: 'center', color: 'white', fontSize: 15, fontFamily: 'Inter', fontWeight: '400' }}>COPYRIGHT © 2025 STITCHIES CO.</div>
-          <div style={{ left: '61%', top: 41, position: 'absolute', color: 'white', fontSize: 25, fontFamily: 'Roboto', fontWeight: '700' }}>Follow Us</div>
-          <img style={{ width: 35, height: 35, left: '70%', top: 78, position: 'absolute' }} src={shopeeIcon} />
-          <img style={{ width: 35, height: 35, left: '64%', top: 78, position: 'absolute' }} src={instagramIcon} />
-          <img style={{ width: 35, height: 35, left: '61%', top: 78, position: 'absolute' }} src={fbIcon} />
-          <img style={{ width: 35, height: 35, left: '67%', top: 78, position: 'absolute' }} src={tiktok}/>
-          <div style={{ left: '43%', top: 41, position: 'absolute', color: 'white', fontSize: 25, fontFamily: 'Roboto', fontWeight: '700' }}>Contact Us</div>
-          <div style={{ left: '43%', top: 80, position: 'absolute', color: 'white', fontSize: 14, fontFamily: 'Roboto', fontWeight: '400' }}>Email: stitchiescoquette@gmail.com</div>
-          <div style={{ left: '43%', top: 106, position: 'absolute', color: 'white', fontSize: 14, fontFamily: 'Roboto', fontWeight: '400' }}>Phone: (+63) 995-464-6403</div>
-          <div style={{ left: '26%', top: 41, position: 'absolute', color: 'white', fontSize: 25, fontFamily: 'Roboto', fontWeight: '700' }}>Stitchies Co.</div>
-          <div style={{ left: '26%', top: 80, position: 'absolute', color: 'white', fontSize: 14, fontFamily: 'Roboto', fontWeight: '400' }}>About Us</div>
-          <div style={{ left: '26%', top: 106, position: 'absolute', color: 'white', fontSize: 14, fontFamily: 'Roboto', fontWeight: '400' }}>Products</div>
-          <div style={{ left: '32%', top: 80, position: 'absolute', color: 'white', fontSize: 14, fontFamily: 'Roboto', fontWeight: '400' }}>Team</div>
-          <div style={{ left: '32%', top: 106, position: 'absolute', color: 'white', fontSize: 14, fontFamily: 'Roboto', fontWeight: '400' }}>Store</div>
-          <div style={{ width: 1, height: 105, left: '23%', top: 31, position: 'absolute', background: '#6E0016' }} />
-        </footer>
-
-        
-
-
-
-        
-
-
-
-
-
-        
+        <p className="footer-copy">COPYRIGHT © 2025 STITCHIES CO.</p>
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

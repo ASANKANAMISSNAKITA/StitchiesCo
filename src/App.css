@@ -1,96 +1,791 @@
-#navbar {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 🔥 make the outer shell full-width and remove side scroll */
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  background: #FAF8F8;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+}
+
+/* MAIN WRAPPER */
+
+.app {
+  width: 100%;           /* full viewport width */
+  min-height: 100vh;
+  background: #FAF8F8;
+  color: #1A1A1A;
+}
+
+/* NAVBAR */
+
+.navbar {
   position: sticky;
   top: 0;
-  overflow: hidden;
-  background-color: #333;
+  z-index: 1000;
+  background: #82001A;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.25);
 }
 
-
-@media (max-width: 768px) {
-  .desktop-menu { display: none; }
-  .mobile-menu-button { display: block; position: absolute; right: 5%; top: 1rem; }
+.navbar-inner {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+.navbar-logo {
+  max-height: 3.5rem;
+  width: auto;
+}
+
+.desktop-menu {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: #FAF8F8;
+  font-size: 0.95rem;
+  font-family: "Halant", serif;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  padding: 0.1rem 0.6rem;
+  color: #FAF8F8;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.6rem 1.5rem 1rem;
+  background: #82001A;
+}
+
+.mobile-nav-link {
+  background: none;
+  border: none;
+  color: #FAF8F8;
+  text-align: left;
+  font-family: "Halant", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+}
+
+/* SECTIONS */
+
+.section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.section-title {
+  margin: 0 0 2rem;
+  text-align: center;
+  font-family: "Halant", serif;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #82001A;
+}
+
+.section-title.light {
+  color: #FAF8F8;
+}
+
+/* SOCIALS */
 
 .social-section {
-  width: 100%;
-  max-width: 1500px;     /* NEW: keeps it fitting on large screens */
-  margin: 0 auto;        /* center the whole row */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; /* cleaner spacing */
-  gap: 15px;
-  padding: 20px;
-  background: FAF8F8;
+  padding-top: 2.5rem;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
 }
 
 .social-card {
   position: relative;
-  flex: 1 1 calc(25% - 15px); /* 4 per row but flexible */
-  max-width: 530px;           /* smaller width */
-  height: 600px;              /* smaller height */
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 16px;
   cursor: pointer;
   text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .social-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .social-card .overlay {
   position: absolute;
   inset: 0;
   background: #82001A;
-  opacity: 0.20;
+  opacity: 0.2;
   transition: opacity 0.3s ease;
 }
 
-.social-card h2 {
+.social-card h3 {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
-  font-size: 30px; /* smaller text */
-  font-weight: 700;
+  margin: 0;
+  color: #FAF8F8;
   font-family: "Halant", serif;
-  text-shadow: 0px 4px 4px rgba(0,0,0,0.25);
-  text-align: center;
-}
-
-/* Hover effect */
-.social-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
 }
 
 .social-card:hover .overlay {
   opacity: 0.35;
 }
+/* ABOUT – DESKTOP DEFAULT */
 
-/* Tablet */
-@media (max-width: 1024px) {
-  .social-card {
-    flex: 1 1 calc(50% - 15px); /* 2 per row */
-    max-width: none;
-    height: 420px;
+.about-section {
+  background: #82001A;
+  border-radius: 24px;
+  color: #FAF8F8;
+  position: relative;
+  overflow: hidden;
+}
+
+/* whole about section stacks vertically */
+.about-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* "ABOUT" label centred */
+.about-eyebrow {
+  margin: 0.75rem 0 0.4rem;
+  font-size: 2rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-family: "Halant", serif;
+  text-align: center;
+}
+
+/* row: text left, logo right */
+.about-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  column-gap: 4rem;          /* more space between text & logo */
+  align-items: center;
+}
+
+/* left column (title + paragraph) */
+.about-text-block {
+  text-align: left;
+  max-width: 640px;          /* keeps text from stretching too far */
+  margin-left: 10rem;
+  padding-right: 6.5rem;     /* extra breathing room from logo */
+}
+
+/* override the global centered section-title inside ABOUT only */
+.about-text-block .section-title.light {
+  text-align: left;
+  margin: 0 0 0.75rem;
+}
+
+/* paragraph under the title */
+.about-text {
+  margin: 0.5rem 0 0;
+  font-family: "Halant", serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* right column logo – rounded square */
+.about-logo-wrapper {
+  width: 360px;
+  height: 260px;
+  border-radius: 24px;       /* 🔹 rounded square instead of circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1 rem;
+
+}
+
+.about-logo {
+  max-width: 100%;
+  height: auto;
+  padding-bottom: 2rem;
+}
+
+/* roadmap centred row above mission/vision */
+.about-roadmap-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.about-roadmap {
+  width: 100%;
+  max-width: 1100px;
+  border-radius: 16px;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* mission left, vision right */
+.about-mv-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.about-card {
+  background: rgba(250, 248, 248, 0.07);
+  border-radius: 16px;
+  padding: 1.2rem 1.4rem;
+}
+
+.about-card h3 {
+  margin: 0 0 0.75rem;
+  font-family: "Halant", serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.about-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ribbons */
+
+.about-ribbon {
+  position: absolute;
+  opacity: 0.2;
+  width: 180px;
+  height: auto;
+  pointer-events: none;
+}
+
+.about-ribbon-1 {
+  top: -40px;
+  left: -40px;
+  transform: rotate(25deg);
+}
+
+.about-ribbon-2 {
+  top: -70px;
+  right: -30px;
+  transform: rotate(-10deg);
+}
+
+.about-ribbon-3 {
+  bottom: -70px;
+  right: 10%;
+  transform: rotate(160deg);
+}
+
+/* PRODUCTS */
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.product-card {
+  background: #FAF8F8;
+  border-radius: 18px;
+  box-shadow: 0px 6px 8px 2px rgba(0,0,0,0.12);
+  padding: 1rem 1.1rem 1.4rem;
+  text-align: center;
+}
+
+.product-image-wrapper {
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 0.8rem;
+}
+
+.product-image {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.product-name {
+  margin: 0.4rem 0 0.25rem;
+  font-family: "Halant", serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #82001A;
+}
+
+.product-desc {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* TEAM */
+
+.team-section {
+  padding-bottom: 2.5rem;
+}
+
+/* outer container – hides overflow, no manual scrolling */
+.team-scroll {
+  margin-top: 1.5rem;
+  padding: 0.5rem 0 3rem;   /* extra bottom space so shadow shows nicely */
+  overflow-x: hidden;       /* hide scrolling left/right */
+  overflow-y: visible;      /* allow shadow to extend downward */
+  position: relative;
+}
+
+/* moving track */
+.team-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: team-marquee 45s linear infinite;
+}
+
+.team-card {
+  min-width: 230px;
+  max-width: 250px;
+  background: #FFFFFF;
+  border-radius: 24px;
+  box-shadow: 0px 5px 13px rgba(0,0,0,0.25);
+  padding: 1rem 1rem 1.3rem;
+  flex-shrink: 0;
+}
+
+.team-image-wrapper {
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 0.7rem;
+}
+
+.team-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.team-info {
+  text-align: left;
+}
+
+.team-role {
+  margin: 0;
+  font-family: "Halant", serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.team-name {
+  margin: 0.25rem 0 0;
+  font-family: "Halant", serif;
+  font-size: 0.95rem;
+}
+
+/* smooth endless loop – because we duplicated the array */
+@keyframes team-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
-/* Mobile */
+/* hide scrollbar */
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* STORE */
+
+.store-map-wrapper {
+  margin-top: 1.5rem;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.store-map {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* FOOTER */
+
+.footer {
+  margin-top: 3rem;
+  background: #82001A;
+  color: #FFFFFF;
+  padding: 2.5rem 1.5rem 1.5rem;
+  position: relative;
+}
+
+.footer-ribbon {
+  position: absolute;
+  right: 5%;
+  top: -30px;
+  width: 130px;
+  transform: rotate(-20deg);
+}
+
+.footer-columns {
+  max-width: 1200px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.footer-col {
+  min-width: 180px;
+  max-width: 260px;
+}
+
+.footer-heading {
+  margin: 0 0 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.footer-text {
+  margin: 0 0 0.35rem;
+  font-size: 0.9rem;
+}
+
+.footer-link {
+  display: block;
+  margin: 0 0 0.35rem;
+  background: none;
+  border: none;
+  padding: 0;
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.footer-socials img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.footer-copy {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 0.8rem;
+  text-align: center;
+  opacity: 0.9;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+
+/* 🔹 Desktop: make socials wider & taller */
+@media (min-width: 1024px) {
+  .social-section {
+    max-width: 1450px;
+  }
+
+  .social-grid {
+    grid-template-columns: repeat(4, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+
+  .social-card {
+    min-height: 430px;
+  }
+
+  .social-card img {
+    height: 630px;
+    object-fit: cover;
+  }
+
+  .social-card h3 {
+    font-size: 1.6rem;
+  }
+}
+
+/* tablet-ish – just flatten the rounded corners */
+@media (max-width: 900px) {
+  .about-section {
+    border-radius: 0;
+  }
+}
+
 @media (max-width: 768px) {
-  .social-card {
-    flex: 1 1 100%;
-    height: 350px;
+  /* ===== NAV + GENERIC MOBILE STUFF ===== */
+  .desktop-menu {
+    display: none;
   }
 
-  .social-card h2 {
-    font-size: 26px;
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+
+  .section {
+    padding-inline: 1rem;
+  }
+
+  .product-image {
+    height: 220px;
+  }
+
+  /* socials: single column */
+  .social-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .social-card {
+    width: 100%;
+    max-height: 90px;
+    aspect-ratio: 4 / 6;
+  }
+
+  .social-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .social-card h3 {
+    font-size: 1.1rem;
+  }
+
+  /* ===== ABOUT – MOBILE ORDER & CENTERING ===== */
+  .section.about-section {
+    max-width: 100%;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .about-section {
+    padding-inline: 0;
+    border-radius: 0;              /* blend with red on phone */
+  }
+
+  .about-inner {
+    width: 100%;
+    padding: 0 1.25rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;           /* ⬅ center horizontally */
+    text-align: center;            /* ⬅ center text */
+    gap: 1.2rem;
+  }
+
+  /* ABOUT label at top, centered */
+  .about-eyebrow {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  /* inside: logo then text block */
+  .about-top {
+    width: 100%;
+    display: flex;
+    flex-direction: column;        /* stack logo + text */
+    align-items: center;           /* center horizontally */
+    gap: 1rem;
+  }
+
+  .about-logo-wrapper {
+    order: 1;                      /* 1️⃣ logo after ABOUT */
+    width: 190px;
+    height: 190px;
+    margin: 0.25rem 0 0.5rem 0;
+    align-self: center;
+  }
+
+  .about-text-block {
+    order: 2;                      /* 2️⃣ title + description */
+    text-align: center;
+    max-width: 32rem;
+    margin-left: 0;
+    padding-right: 0;
+  }
+
+  .about-text-block .section-title.light {
+    margin: 0 0 0.5rem;
+    text-align: center;
+  }
+
+  .about-text {
+    margin: 0.3rem 0 1rem;
+  }
+
+  /* roadmap after description, centered */
+  .about-roadmap-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-roadmap {
+    width: 100%;
+    max-width: 430px;
+    margin: 0 0 1.5rem 0;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  /* Vision + Mission stacked, centered cards */
+  .about-mv-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .about-card {
+    background: rgba(250, 248, 248, 0.10);
+    box-shadow: none;
+    border-radius: 16px;
+    text-align: center;
+    width: 100%;
+    max-width: 32rem;
+  }
+
+  .about-mv-grid .about-card:first-child {
+    order: 2;   /* Mission second */
+  }
+
+  .about-mv-grid .about-card:last-child {
+    order: 1;   /* Vision first */
+  }
+
+  /* ===== FOOTER – CENTER ON MOBILE ===== */
+  .footer {
+    text-align: center;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .footer-columns {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .footer-col {
+    min-width: auto;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .footer-link,
+  .footer-text {
+    text-align: center;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
+
+  .footer-ribbon {
+    right: 50%;
+    transform: translateX(50%) rotate(-20deg);
+  }
+
+  .footer-ribbon {
+    right: -40px;                       /* push outside the container */
+    top: 40%;
+    width: 210px;                       /* bigger */
+    transform: translateY(-50%) rotate(-15deg);
+    opacity: 0.45;                      /* a bit softer so text is readable */
+    pointer-events: none;
+  }
+
+}
+
+
+
+@media (max-width: 480px) {
+  .about-logo-wrapper {
+    width: 180px;
+    height: 180px;
+  }
+
+  .team-card {
+    min-width: 210px;
+  }
+
+  .social-card h3 {
+    font-size: 1.1rem;
   }
 }
 
-.hide-scrollbar::-webkit-scrollbar { display: none; }
+/* 🚫 Hide global scrollbars but keep scrolling */
+html {
+  scrollbar-width: none;    /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  width: 0;                 /* Chrome / Edge / Safari */
+  height: 0;
+  display: none;
+}
