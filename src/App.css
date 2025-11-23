@@ -321,6 +321,24 @@ body {
   right: 10%;
   transform: rotate(160deg);
 }
+
+.about-ribbon-4 {
+  top: 31%;           /* adjust up/down */
+  right: 0%;          /* adjust left/right */
+  width: 230px;
+  opacity: 0.35;
+  transform: rotate(-20deg);
+}
+
+/* bottom-left, near the start of the roadmap */
+.about-ribbon-5 {
+  bottom: 240px;      /* slightly out of the box so it “peeks in” */
+  left: -5%;
+  width: 260px;
+  opacity: 0.35;
+  transform: rotate(18deg);
+}
+
 /* PRODUCTS */
 
 /* mobile-first: 1 column */
@@ -743,6 +761,23 @@ body {
     text-align: center;
     width: 100%;
     max-width: 32rem;
+  }
+
+  .about-ribbon-4 {
+    top: 33%;           /* adjust up/down */
+    right: -15%;          /* adjust left/right */
+    width: 130px;
+    opacity: 0.35;
+    transform: rotate(-20deg);
+  }
+
+  /* bottom-left, near the start of the roadmap */
+  .about-ribbon-5 {
+    bottom: 290px;      /* slightly out of the box so it “peeks in” */
+    left: -20%;
+    width: 140px;
+    opacity: 0.35;
+    transform: rotate(18deg);
   }
 
   .about-mv-grid .about-card:first-child {

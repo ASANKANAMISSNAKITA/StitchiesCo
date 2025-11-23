@@ -164,6 +164,8 @@ function App() {
           <img src={ribbon} alt="" className="about-ribbon about-ribbon-1" />
           <img src={ribbon} alt="" className="about-ribbon about-ribbon-2" />
           <img src={ribbon} alt="" className="about-ribbon about-ribbon-3" />
+          <img src={ribbon} alt="" className="about-ribbon about-ribbon-4" />
+          <img src={ribbon} alt="" className="about-ribbon about-ribbon-5" />
 
           <div className="about-inner">
             {/* top label */}
