@@ -64,12 +64,12 @@ function App() {
   };
 
   const products = [
-    { name: 'TOTIE BAG', description: 'Stylish and functional tote bag.', image: totiebag },
-    { name: 'POUCHIES', description: 'Versatile small pouches for essentials.', image: pouchies },
-    { name: 'LAPSTITCHIE', description: 'Sleeve for laptops and tablets.', image: lapstitchie },
-    { name: 'STITCHIE SLEEVES', description: 'Protective sleeves for various items.', image: sleeves },
-    { name: 'SILKANIK', description: 'Eco-friendly silk organizer.', image: silkanik },
-    { name: 'STITCHBUDS', description: 'Earbud/small cable organizer.', image: stitchbuds },
+    { name: 'TOTIE BAG', description: 'It features a signature design that is spacious yet lightweight, with an inner lining and a secure zipper closure.', image: totiebag },
+    { name: 'POUCHIES', description: 'It feature a three-tier compartment design with a secure zipper closure and a built-in hook for easy hanging.', image: pouchies },
+    { name: 'LAPSTITCHIE', description: 'Built to accommodate a 17-inch device, it offers protective inner foam padding, a convenient front pocket, and a hand-carry option for flexible use.', image: lapstitchie },
+    { name: 'STITCHIE SLEEVES', description: 'Sized for a 13-inch ipad, it provides cushioned foam protection, an added front section for small items, and an easy hand-carry feature.', image: sleeves },
+    { name: 'SILKANIK', description: 'It is made from smooth silk, providing full coverage while remaining compact and lightweight for comfortable wear.', image: silkanik },
+    { name: 'STITCHBUDS', description: 'It is lined with inner foam for protection, secured with a button snap closure, and designed to be compact enough for use as a keychain.', image: stitchbuds },
   ];
 
   const teamMembers = [
