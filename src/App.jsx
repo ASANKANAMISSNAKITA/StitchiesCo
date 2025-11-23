@@ -270,33 +270,36 @@ function App() {
         <img src={ribbon} alt="" className="footer-ribbon" />
 
         <div className="footer-columns">
-          <div className="footer-col">
-            <h3 className="footer-heading">Stitchies Co.</h3>
-            <button
-              className="footer-link"
-              onClick={() => scrollToSection(aboutRef, sectionOffsets.ABOUT)}
-            >
-              About Us
-            </button>
-            <button
-              className="footer-link"
-              onClick={() => scrollToSection(productsRef, sectionOffsets.PRODUCTS)}
-            >
-              Products
-            </button>
-            <button
-              className="footer-link"
-              onClick={() => scrollToSection(teamRef, sectionOffsets.TEAM)}
-            >
-              Team
-            </button>
-            <button
-              className="footer-link"
-              onClick={() => scrollToSection(storeRef, sectionOffsets.STORE)}
-            >
-              Store
-            </button>
-          </div>
+          <div className="footer-col footer-col--links">
+  <h3 className="footer-heading">Stitchies Co.</h3>
+
+  <div className="footer-links-grid">
+    <button
+      className="footer-link"
+      onClick={() => scrollToSection(aboutRef, sectionOffsets.ABOUT)}
+    >
+      About Us
+    </button>
+    <button
+      className="footer-link"
+      onClick={() => scrollToSection(productsRef, sectionOffsets.PRODUCTS)}
+    >
+      Products
+    </button>
+    <button
+      className="footer-link"
+      onClick={() => scrollToSection(teamRef, sectionOffsets.TEAM)}
+    >
+      Team
+    </button>
+    <button
+      className="footer-link"
+      onClick={() => scrollToSection(storeRef, sectionOffsets.STORE)}
+    >
+      Store
+    </button>
+  </div>
+</div>
 
           <div className="footer-col">
             <h3 className="footer-heading">Contact Us</h3>

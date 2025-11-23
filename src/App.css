@@ -466,14 +466,17 @@ body {
   color: #FFFFFF;
   padding: 2.5rem 1.5rem 1.5rem;
   position: relative;
+  overflow: hidden;
 }
 
 .footer-ribbon {
   position: absolute;
-  right: 5%;
-  top: -30px;
-  width: 130px;
+  right: 0%;
+  top: -70px;
+  right: -80px;
+  width: 300px;
   transform: rotate(-20deg);
+  opacity: 0.45;  
 }
 
 .footer-columns {
@@ -482,7 +485,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .footer-col {
@@ -536,6 +539,22 @@ body {
   text-align: center;
   opacity: 0.9;
 }
+
+/* FOOTER LINKS – DESKTOP / TABLET */
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns */
+  column-gap: 1.5rem;
+  row-gap: 0.25rem;
+  max-width: 260px; /* optional: keeps it compact */
+}
+
+/* make the buttons behave nicely inside the grid */
+.footer-col--links .footer-link {
+  width: 100%;
+  text-align: left;
+}
+
 
 /* RESPONSIVE BREAKPOINTS */
 
@@ -752,12 +771,28 @@ body {
   }
 
   .footer-ribbon {
-    right: -40px;                       /* push outside the container */
-    top: 40%;
-    width: 210px;                       /* bigger */
-    transform: translateY(-50%) rotate(-15deg);
+    right: -150px;                       /* push outside the container */
+    top: 60%;
+    width: 300px;                       /* bigger */
+    transform: translateY(-50%) rotate(-45deg);
     opacity: 0.45;                      /* a bit softer so text is readable */
     pointer-events: none;
+  }
+
+  .footer-col--links {
+    width: 100%;
+
+    justify-content: center;   /* center the grid wrapper */
+  }
+
+  .footer-links-grid {
+    margin: 0 auto;           /* center the grid itself */
+    justify-items: center;    /* center items in each grid cell */
+  }
+
+  /* override the desktop "text-align: left" with higher specificity */
+  .footer-col--links .footer-link {
+    text-align: center;
   }
 
 }
